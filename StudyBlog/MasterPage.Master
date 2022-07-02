@@ -1,0 +1,131 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="StudyBlog.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
+		<title>Study Blog</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<link href='//fonts.googleapis.com/css?family=Carrois+Gothic+SC' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.1.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <!-- Start-wrap -->		
+			<!-- Start-Header-->			
+			<div class="header">
+				<div class="wrap">
+				<!-- Start-logo-->
+				<div class="logo">
+					<h1 style="color:#fff;font-size:30px;text-transform:capitalize;"><a href="index.html" style="color:#fff;margin-left:5px">Study Blog</a></h1>
+				</div>		
+                    		
+				<!-- End-Logo-->
+				<!-- Start-Header-nav-->
+                    				
+				<div class="clear"> </div>	
+                    			
+				<!-- End-Header-nav-->
+			</div>
+			</div>
+			<div class="header-nav1">
+				<div class="wrap">
+					<ul>
+						<li><a href="Default.aspx">Home</a></li>
+                        </ul>
+						
+                        <div class="dropdownn">
+                            <button class="dropbtn">Categories 
+                              <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdownn-content" >
+                                <asp:Repeater ID="repMenu" runat="server">
+                                    <ItemTemplate>
+                                        <li style="list-style-type:none;"><asp:LinkButton ID="LinkButton2" runat="server" Text='<%#Eval("Categorie_Name") %>' PostBackUrl='<%# "~/Pages.aspx?PageId="+Eval("Categorie_Id") %>' CausesValidation="False"></asp:LinkButton></li>
+                                    </ItemTemplate>
+						        </asp:Repeater>
+                            </div>
+                        </div> 
+                    <ul>
+						<li><a href="ContactUs.aspx">Contact</a></li>
+					</ul>	
+                     <div style="float:right;margin-right:30px">
+                            <ul>
+                                <li><a href="Login.aspx">Login</a></li>
+                            </ul>
+                        </div>			
+				</div>	
+                			
+			<!-- End-Header-->
+			<div class="clear"> </div>
+			<!-- content-gallery-->
+			</div>
+			<div class="wrap">
+				<div class="about">
+					<div class="services-sidebar">
+					<h4>Categories</h4>
+					<ul>
+						<asp:Repeater ID="repCategories" runat="server">
+                            <ItemTemplate>
+                                <li><img src="images/pointer.png" title="pointer" /><asp:LinkButton ID="LinkButton1" runat="server" Text='<%#Eval("Categorie_Name") %>' PostBackUrl='<%# "~/Pages.aspx?PageId="+Eval("Categorie_Id") %>' CausesValidation="False"></asp:LinkButton></li>
+                            </ItemTemplate>
+						</asp:Repeater>
+					</ul><br />
+					<h4>Archives</h4>
+					<ul>
+                        <asp:Repeater ID="repArchives" runat="server">
+                            <ItemTemplate>
+                                <li><img src="images/pointer.png" title="pointer" />
+                                    <a href="#">
+                                        <span><asp:LinkButton ID="lbArchives" runat="server" Text='<%#Eval("Blog_Month") %>' PostBackUrl='<%# "~/Pages.aspx?PageMonth="+Eval("Blog_Month")+"&PageYear="+Eval("Blog_Year") %>' CausesValidation="False"></asp:LinkButton>,
+                                            <asp:LinkButton ID="LinkButton3" runat="server" Text='<%#Eval("Blog_Year") %>' PostBackUrl='<%# "~/Pages.aspx?PageMonth="+Eval("Blog_Month")+"&PageYear="+Eval("Blog_Year") %>' CausesValidation="False"></asp:LinkButton></span>
+                                    </a></li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+						
+						
+					</ul>
+				    </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+                </asp:ContentPlaceHolder>
+              <div class="clear"> </div>
+              </div>
+            </div>
+        <div class="clear"> </div>
+			<!-- End-content-gallery-->
+		
+    <div class="clear"> </div>
+		<div class="footer">
+				<div class="wrap">
+				<h3>SAY HELLO</h3>
+				<p>This is a Study Blog and all study material should be found here .</p>
+			<div class="footerlinks">
+				<div class="share">
+                    <ul>
+		                	<li><a href="#" target="_blank" title="Facebook"><span class="social fbook"> </span></a></li>
+		                	<li><a href="#" target="_blank" title="twitter"><span class="social twitter"> </span></a></li>
+		                    <li><a href="#" target="_blank" title="tumblr"><span class="social tumblr"> </span></a></li>
+		                    <li><a href="#" target="_blank" title="delicious"><span class="social delicious"> </span></a></li>
+		                	<li><a href="#" target="_blank" title="delicious"><span class="social delicious"> </span></a></li>
+		                	<li><a href="#" target="_blank" title="dribbble"><span class="social dribbble"> </span></a></li>
+		                    <li><a href="#" target="_blank" title="evernote"><span class="social evernote"> </span></a></li>
+		                    <li><a href="#" target="_blank" title="stumbleupon"><span class="social stumbleupon"> </span></a></li>
+		            </ul>
+                 </div>
+			</div>
+			</div>
+			</div>
+			<div class="footer1">
+	<p class="link"><span>© 2013 study_blog. All rights Reserved | Designed by&nbsp;  <b>Tamzid Hasan Nahid</b>	</span></p>
+</div>
+		<!-- End-wrap -->
+    </form>
+</body>
+</html>
